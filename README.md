@@ -1,6 +1,8 @@
 # Software that Sucks Less
 
-## Fix the GDM entry on [GNU/Debian][]
+[suckless][] is a great source of inspiration, really.
+
+## Fix the GDM entry for DWM on GNU/Debian Linux
 
 ```shell
 [Desktop Entry]
@@ -11,5 +13,4 @@ Icon=dwm
 Type=XSession
 ```
 
-[GNU/Debian]: https://debin.org/
-[suckless.org]: https://suckless.org/
+[suckless]: https://suckless.org/
