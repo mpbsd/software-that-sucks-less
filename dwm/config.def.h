@@ -66,7 +66,7 @@ static const char *lockcmd[]  = { "slock", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *tmuxcmd[]  = { "st", "-e", "tmux", NULL };
 static const char *mailcmd[]  = { "st", "-e", "mutt", NULL };
-static const char *browser[]  = { "surf", "https://duckduckgo.com", NULL };
+static const char *browser[]  = { "chromium", "https://duckduckgo.com", NULL };
 
 static const Key keys[] = {
   /* modifier                     key        function        argument */
