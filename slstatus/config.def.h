@@ -71,5 +71,5 @@ static const struct arg args[] = {
   { swap_perc, "[ SWP %03s%% ]",  NULL                     },
   { disk_perc, "[ ROOT %03s%% ]", "/"                      },
   { disk_perc, "[ HOME %03s%% ]", "/home"                  },
-  { datetime,  "%s",              "[ %R ][ %a, %b %d, %Y]" },
+  { datetime,  "%s",              "[ %R ][ %a, %b %d, %Y ]" },
 };
