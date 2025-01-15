@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 12;       /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -63,8 +63,9 @@ static const Layout layouts[] = {
 static char dmenumon[2]       = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *lockcmd[]  = { "slock", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
-static const char *mailcmd[]  = { "kitty", "-e", "mutt", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *mailcmd[]  = { "alacritty", "-e", "mutt", NULL };
+static const char *tmuxcmd[]  = { "alacritty", "-e", "tmux", NULL };
 static const char *browser[]  = { "firefox", "https://duckduckgo.com", NULL };
 
 static const Key keys[] = {
@@ -108,6 +109,7 @@ static const Key keys[] = {
     { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd} },
     { MODKEY|ControlMask,           XK_b,      spawn,          {.v = browser} },
     { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
+    { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} },
 };
 
 /* button definitions */
