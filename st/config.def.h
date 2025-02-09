@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "BlexMono Nerd Font:size=12:antialias=true:autohint=true";
+static char *font = "Lilex Nerd Font Mono:size=12:antialias=true:autohint=true";
 static int borderpx = 8;
 
 /*
@@ -96,28 +96,28 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
   /* 8 normal colors */
-  [0] = "#2e3436", /* black   */
-  [1] = "#cc0000", /* red     */
-  [2] = "#4e9a06", /* green   */
-  [3] = "#c4a000", /* yellow  */
-  [4] = "#3465a4", /* blue    */
-  [5] = "#75507b", /* magenta */
-  [6] = "#06989a", /* cyan    */
-  [7] = "#d3d7cf", /* white   */
+  [0] = "#32344a", /* black   */
+  [1] = "#f7768e", /* red     */
+  [2] = "#9ece6a", /* green   */
+  [3] = "#e0af68", /* yellow  */
+  [4] = "#7aa2f7", /* blue    */
+  [5] = "#ad8ee6", /* magenta */
+  [6] = "#449dab", /* cyan    */
+  [7] = "#787c99", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#555753", /* black   */
-  [9]  = "#ef2929", /* red     */
-  [10] = "#8ae234", /* green   */
-  [11] = "#fce94f", /* yellow  */
-  [12] = "#729fcf", /* blue    */
-  [13] = "#ad7fa8", /* magenta */
-  [14] = "#34e2e2", /* cyan    */
-  [15] = "#eeeeec", /* white   */
+  [8]  = "#444b6a", /* black   */
+  [9]  = "#ff7a93", /* red     */
+  [10] = "#b9f27c", /* green   */
+  [11] = "#ff9e64", /* yellow  */
+  [12] = "#7da6ff", /* blue    */
+  [13] = "#bb9af7", /* magenta */
+  [14] = "#0db9d7", /* cyan    */
+  [15] = "#acb0d0", /* white   */
 
   /* special colors */
-  [256] = "#000000", /* background */
-  [257] = "#babdb6", /* foreground */
+  [256] = "#1a1b26", /* background */
+  [257] = "#a9b1d6", /* foreground */
 };
 
 
