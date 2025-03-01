@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Lilex Nerd Font Mono:size=12:antialias=true:autohint=true";
-static int borderpx = 8;
+static char *font = "Lilex Nerd Font Mono:pixelsize=14:antialias=true:autohint=true";
+static int borderpx = 7;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -95,40 +95,54 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-  /* 8 normal colors */
-  [0] = "#32344a", /* black   */
-  [1] = "#f7768e", /* red     */
-  [2] = "#9ece6a", /* green   */
-  [3] = "#e0af68", /* yellow  */
-  [4] = "#7aa2f7", /* blue    */
-  [5] = "#ad8ee6", /* magenta */
-  [6] = "#449dab", /* cyan    */
-  [7] = "#787c99", /* white   */
-
-  /* 8 bright colors */
-  [8]  = "#444b6a", /* black   */
-  [9]  = "#ff7a93", /* red     */
-  [10] = "#b9f27c", /* green   */
-  [11] = "#ff9e64", /* yellow  */
-  [12] = "#7da6ff", /* blue    */
-  [13] = "#bb9af7", /* magenta */
-  [14] = "#0db9d7", /* cyan    */
-  [15] = "#acb0d0", /* white   */
-
-  /* special colors */
-  [256] = "#1a1b26", /* background */
-  [257] = "#a9b1d6", /* foreground */
+	/* solarized dark */
+	"#073642",  /*  0: black    */
+	"#dc322f",  /*  1: red      */
+	"#859900",  /*  2: green    */
+	"#b58900",  /*  3: yellow   */
+	"#268bd2",  /*  4: blue     */
+	"#d33682",  /*  5: magenta  */
+	"#2aa198",  /*  6: cyan     */
+	"#eee8d5",  /*  7: white    */
+	"#002b36",  /*  8: brblack  */
+	"#cb4b16",  /*  9: brred    */
+	"#586e75",  /* 10: brgreen  */
+	"#657b83",  /* 11: bryellow */
+	"#839496",  /* 12: brblue   */
+	"#6c71c4",  /* 13: brmagenta*/
+	"#93a1a1",  /* 14: brcyan   */
+	"#fdf6e3",  /* 15: brwhite  */
 };
 
+/* Terminal colors for alternate (light) palette */
+static const char *altcolorname[] = {
+	/* solarized light */
+	"#eee8d5",  /*  0: black    */
+	"#dc322f",  /*  1: red      */
+	"#859900",  /*  2: green    */
+	"#b58900",  /*  3: yellow   */
+	"#268bd2",  /*  4: blue     */
+	"#d33682",  /*  5: magenta  */
+	"#2aa198",  /*  6: cyan     */
+	"#073642",  /*  7: white    */
+	"#fdf6e3",  /*  8: brblack  */
+	"#cb4b16",  /*  9: brred    */
+	"#93a1a1",  /* 10: brgreen  */
+	"#839496",  /* 11: bryellow */
+	"#657b83",  /* 12: brblue   */
+	"#6c71c4",  /* 13: brmagenta*/
+	"#586e75",  /* 14: brcyan   */
+	"#002b36",  /* 15: brwhite  */
+};
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultbg = 256;
-unsigned int defaultfg = 257;
-static unsigned int defaultcs = 5;
-static unsigned int defaultrcs = 14;
+unsigned int defaultfg = 12;
+unsigned int defaultbg = 8;
+static unsigned int defaultcs = 14;
+static unsigned int defaultrcs = 15;
 
 /*
  * Default shape of cursor
@@ -197,6 +211,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ XK_ANY_MOD,           XK_F6,          swapcolors,     {.i =  0} },
 };
 
 /*
