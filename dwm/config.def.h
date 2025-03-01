@@ -60,7 +60,9 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *tmuxcmd[]  = { "st -e tmux", NULL };
+static const char *mailcmd[]  = { "st", "-e", "mutt", NULL };
+static const char *tmuxcmd[]  = { "st", "-e", "tmux", NULL };
+static const char *browser[]  = { "firefox", "https://duckduckgo.com", NULL };
 
 static const Key keys[] = {
   /* modifier                     key        function        argument */
@@ -100,7 +102,9 @@ static const Key keys[] = {
   TAGKEYS(                        XK_8,                      7)
   TAGKEYS(                        XK_9,                      8)
   { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd} },
+  { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd} },
+  { MODKEY|ControlMask,           XK_b,      spawn,          {.v = browser} },
+  { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
   { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} },
 };
 
