@@ -24,8 +24,8 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
   /* xprop(1):
-   *	WM_CLASS(STRING) = instance, class
-   *	WM_NAME(STRING) = title
+   * WM_CLASS(STRING) = instance, class
+   * WM_NAME(STRING) = title
    */
   /* class           instance                 title       tags mask     iscentered   isfloating   monitor */
   { "Gcr-prompt",   "gcr-prompt",             NULL,       1 << 0,       1,           1,           -1 },
@@ -53,10 +53,10 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
-{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+  { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+  { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+  { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+  { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -100,20 +100,20 @@ static Key keys[] = {
   { MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
   { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
   TAGKEYS(                        XK_1,                      0)
-    TAGKEYS(                        XK_2,                      1)
-    TAGKEYS(                        XK_3,                      2)
-    TAGKEYS(                        XK_4,                      3)
-    TAGKEYS(                        XK_5,                      4)
-    TAGKEYS(                        XK_6,                      5)
-    TAGKEYS(                        XK_7,                      6)
-    TAGKEYS(                        XK_8,                      7)
-    TAGKEYS(                        XK_9,                      8)
-    { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd} },
-    { MODKEY|ControlMask,           XK_b,      spawn,          {.v = browser} },
-    { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
-    { MODKEY|ControlMask,           XK_r,      spawn,          {.v = readcmd} },
-    { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} }
+  TAGKEYS(                        XK_2,                      1)
+  TAGKEYS(                        XK_3,                      2)
+  TAGKEYS(                        XK_4,                      3)
+  TAGKEYS(                        XK_5,                      4)
+  TAGKEYS(                        XK_6,                      5)
+  TAGKEYS(                        XK_7,                      6)
+  TAGKEYS(                        XK_8,                      7)
+  TAGKEYS(                        XK_9,                      8)
+  { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+  { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd} },
+  { MODKEY|ControlMask,           XK_b,      spawn,          {.v = browser} },
+  { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
+  { MODKEY|ControlMask,           XK_r,      spawn,          {.v = readcmd} },
+  { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} }
 };
 
 /* button definitions */
