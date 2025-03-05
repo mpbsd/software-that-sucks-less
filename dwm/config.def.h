@@ -24,24 +24,24 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
   /* xprop(1):
-   * WM_CLASS(STRING) = instance, class
-   * WM_NAME(STRING) = title
+   *	WM_CLASS(STRING) = instance, class
+   *	WM_NAME(STRING) = title
    */
-  /* class            instance                 title        tags mask      isfloating    monitor */
-   { "mpv",           "gl",                    NULL,        1 << 0,        1,            -1 },
-   { "st-256color",   "st-256color",           NULL,        1 << 0,        0,            -1 },
-   { "Chromium",      "chromium",              NULL,        1 << 1,        0,            -1 },
-   { "firefox-esr",   "Navigator",             NULL,        1 << 1,        0,            -1 },
-   { "calibre",       "calibre-gui",           NULL,        1 << 7,        0,            -1 },
-   { "Gimp",          "gimp",                  NULL,        1 << 8,        0,            -1 },
-   { "Inkscape",      "org.inkscape.Inkscape", NULL,        1 << 8,        0,            -1 },
+  /* class           instance                 title       tags mask     iscentered   isfloating   monitor */
+  { "Gcr-prompt",   "gcr-prompt",             NULL,       1 << 0,       1,           1,           -1 },
+  { "st-256color",   "st-256color",           NULL,       1 << 0,       0,           0,           -1 },
+  { "Chromium",      "chromium",              NULL,       1 << 1,       0,           0,           -1 },
+  { "firefox-esr",   "Navigator",             NULL,       1 << 1,       0,           0,           -1 },
+  { "mpv",           "gl",                    NULL,       1 << 6,       1,           1,           -1 },
+  { "calibre",       "calibre-gui",           NULL,       1 << 7,       0,           0,           -1 },
+  { "Gimp",          "gimp",                  NULL,       1 << 8,       0,           0,           -1 },
+  { "Inkscape",      "org.inkscape.Inkscape", NULL,       1 << 8,       0,           0,           -1 }
 };
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
@@ -53,16 +53,17 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
-  { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-  { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-  { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-  { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *browser[]  = { "firefox", "https://duckduckgo.com", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 static const char *mailcmd[]  = { "st", "-e", "mutt", NULL };
@@ -70,7 +71,7 @@ static const char *readcmd[]  = { "calibre", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *tmuxcmd[]  = { "st", "-e", "tmux", NULL };
 
-static const Key keys[] = {
+static Key keys[] = {
   /* modifier                     key        function        argument */
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
   { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
@@ -99,25 +100,25 @@ static const Key keys[] = {
   { MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
   { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
   TAGKEYS(                        XK_1,                      0)
-  TAGKEYS(                        XK_2,                      1)
-  TAGKEYS(                        XK_3,                      2)
-  TAGKEYS(                        XK_4,                      3)
-  TAGKEYS(                        XK_5,                      4)
-  TAGKEYS(                        XK_6,                      5)
-  TAGKEYS(                        XK_7,                      6)
-  TAGKEYS(                        XK_8,                      7)
-  TAGKEYS(                        XK_9,                      8)
-  { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd} },
-  { MODKEY|ControlMask,           XK_b,      spawn,          {.v = browser} },
-  { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
-  { MODKEY|ControlMask,           XK_r,      spawn,          {.v = readcmd} },
-  { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} },
+    TAGKEYS(                        XK_2,                      1)
+    TAGKEYS(                        XK_3,                      2)
+    TAGKEYS(                        XK_4,                      3)
+    TAGKEYS(                        XK_5,                      4)
+    TAGKEYS(                        XK_6,                      5)
+    TAGKEYS(                        XK_7,                      6)
+    TAGKEYS(                        XK_8,                      7)
+    TAGKEYS(                        XK_9,                      8)
+    { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+    { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd} },
+    { MODKEY|ControlMask,           XK_b,      spawn,          {.v = browser} },
+    { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
+    { MODKEY|ControlMask,           XK_r,      spawn,          {.v = readcmd} },
+    { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} }
 };
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
-static const Button buttons[] = {
+static Button buttons[] = {
   /* click                event mask      button          function        argument */
   { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
   { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
@@ -129,6 +130,5 @@ static const Button buttons[] = {
   { ClkTagBar,            0,              Button1,        view,           {0} },
   { ClkTagBar,            0,              Button3,        toggleview,     {0} },
   { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-  { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+  { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} }
 };
-
