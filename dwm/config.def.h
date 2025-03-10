@@ -32,6 +32,7 @@ static const Rule rules[] = {
   { "st-256color",   "st-256color",           NULL,       1 << 0,       0,           0,           -1 },
   { "Chromium",      "chromium",              NULL,       1 << 1,       0,           0,           -1 },
   { "firefox-esr",   "Navigator",             NULL,       1 << 1,       0,           0,           -1 },
+  { "Gvim",          "gvim",                  NULL,       1 << 3,       1,           0,           -1 },
   { "kile",          "kile",                  NULL,       1 << 3,       1,           0,           -1 },
   { "mpv",           "gl",                    NULL,       1 << 6,       1,           1,           -1 },
   { "calibre",       "calibre-gui",           NULL,       1 << 7,       0,           0,           -1 },
