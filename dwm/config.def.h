@@ -32,10 +32,7 @@ static const Rule rules[] = {
   { "st-256color",   "st-256color",           NULL,       1 << 0,       0,           0,           -1 },
   { "Chromium",      "chromium",              NULL,       1 << 1,       0,           0,           -1 },
   { "firefox-esr",   "Navigator",             NULL,       1 << 1,       0,           0,           -1 },
-  { "Gvim",          "gvim",                  NULL,       1 << 3,       1,           0,           -1 },
-  { "kile",          "kile",                  NULL,       1 << 3,       1,           0,           -1 },
-  { "mpv",           "gl",                    NULL,       1 << 6,       1,           1,           -1 },
-  { "calibre",       "calibre-gui",           NULL,       1 << 7,       0,           0,           -1 },
+  { "mpv",           "mpvk",                  NULL,       1 << 6,       1,           1,           -1 },
   { "Gimp",          "gimp",                  NULL,       1 << 8,       0,           0,           -1 },
   { "Inkscape",      "org.inkscape.Inkscape", NULL,       1 << 8,       0,           0,           -1 }
 };
@@ -69,8 +66,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *browser[] = { "chromium", "https://duckduckgo.com", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *mailcmd[] = { "st", "-e", "mutt", NULL };
-static const char *readcmd[] = { "calibre", NULL };
-static const char *termcmd[] = { "st", NULL };
+static const char *strmcmd[] = { "st", NULL };
 static const char *tmuxcmd[] = { "st", "-e", "tmux", NULL };
 
 static Key keys[] = {
@@ -85,7 +81,7 @@ static Key keys[] = {
   TAGKEYS(                        XK_8,                      7)
   TAGKEYS(                        XK_9,                      8)
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-  { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+  { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = strmcmd } },
   { MODKEY,                       XK_b,      togglebar,      {0} },
   { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
   { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -114,8 +110,8 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd} },
   { MODKEY|ControlMask,           XK_b,      spawn,          {.v = browser} },
   { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
-  { MODKEY|ControlMask,           XK_r,      spawn,          {.v = readcmd} },
   { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} },
+  { MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("~/.local/bin/bread") },
 };
 
 /* button definitions */
@@ -125,7 +121,7 @@ static Button buttons[] = {
   { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
   { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
   { ClkWinTitle,          0,              Button2,        zoom,           {0} },
-  { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+  { ClkStatusText,        0,              Button2,        spawn,          {.v = strmcmd } },
   { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
   { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
   { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
