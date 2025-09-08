@@ -52,6 +52,7 @@ Mkfile.old
 dkms.conf
 
 # own files
+dmenu/config.h
 dmenu/dmenu
 dmenu/stest
 dwm/config.h
@@ -59,6 +60,7 @@ dwm/drw.o
 dwm/dwm
 dwm/dwm.o
 dwm/util.o
+slock/config.h
 slstatus/config.h
 slstatus/slstatus
 slstatus/slstatus.o

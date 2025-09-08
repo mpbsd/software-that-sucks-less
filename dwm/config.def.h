@@ -112,6 +112,8 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
   { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} },
   { MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("~/.local/bin/bread") },
+  { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("passmenu") },
+  { MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("potpmenu") },
 };
 
 /* button definitions */
