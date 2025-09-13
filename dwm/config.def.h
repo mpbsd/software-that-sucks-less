@@ -51,6 +51,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define METKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -111,9 +112,9 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_b,      spawn,          {.v = browser} },
   { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
   { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} },
-  { MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("~/.local/bin/bread") },
-  { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("passmenu") },
-  { MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("potpmenu") },
+  { METKEY,                       XK_b,      spawn,          SHCMD("~/.local/bin/bread") },
+  { METKEY,                       XK_p,      spawn,          SHCMD("passmenu") },
+  { METKEY,                       XK_o,      spawn,          SHCMD("potpmenu") },
 };
 
 /* button definitions */
