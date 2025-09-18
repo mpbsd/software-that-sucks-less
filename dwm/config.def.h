@@ -34,7 +34,8 @@ static const Rule rules[] = {
   { "firefox-esr",   "Navigator",             NULL,       1 << 1,       0,           0,           -1 },
   { "mpv",           "mpvk",                  NULL,       1 << 6,       1,           1,           -1 },
   { "Gimp",          "gimp",                  NULL,       1 << 8,       0,           0,           -1 },
-  { "Inkscape",      "org.inkscape.Inkscape", NULL,       1 << 8,       0,           0,           -1 }
+  { "Inkscape",      "org.inkscape.Inkscape", NULL,       1 << 8,       0,           0,           -1 },
+  { "Gvim",          "gvim",                  NULL,       1 << 0,       1,           1,           -1 }
 };
 
 /* layout(s) */
