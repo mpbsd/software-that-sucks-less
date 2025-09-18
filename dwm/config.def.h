@@ -115,6 +115,7 @@ static Key keys[] = {
   { METKEY,                       XK_b,      spawn,          SHCMD("~/.local/bin/bread") },
   { METKEY,                       XK_p,      spawn,          SHCMD("passmenu") },
   { METKEY,                       XK_o,      spawn,          SHCMD("potpmenu") },
+  { METKEY,                       XK_z,      spawn,          SHCMD("flatpak run org.zotero.Zotero") }
 };
 
 /* button definitions */
