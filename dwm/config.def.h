@@ -28,6 +28,7 @@ static const Rule rules[] = {
    * WM_NAME(STRING) = title
    */
   /* class           instance                 title       tags mask     iscentered   isfloating   monitor */
+  { "Alacritty",     "Alacritty",             NULL,       1 << 0,       0,           0,           -1 },
   { "Gcr-prompt",    "gcr-prompt",            NULL,       1 << 0,       1,           1,           -1 },
   { "st-256color",   "st-256color",           NULL,       1 << 0,       0,           0,           -1 },
   { "Chromium",      "chromium",              NULL,       1 << 1,       0,           0,           -1 },
@@ -67,9 +68,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *browser[] = { "chromium", "https://duckduckgo.com", NULL };
 static const char *lockcmd[] = { "slock", NULL };
-static const char *mailcmd[] = { "st", "-e", "mutt", NULL };
-static const char *strmcmd[] = { "st", NULL };
-static const char *tmuxcmd[] = { "st", "-e", "tmux", NULL };
+static const char *mailcmd[] = { "alacritty", "-e", "mutt", NULL };
+static const char *strmcmd[] = { "alacritty", NULL };
+static const char *tmuxcmd[] = { "alacritty", "-e", "tmux", NULL };
 
 static Key keys[] = {
   /* modifier                     key        function        argument */
