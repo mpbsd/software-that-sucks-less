@@ -36,7 +36,7 @@ static const Rule rules[] = {
   { "mpv",           "mpvk",                  NULL,       1 << 6,       1,           1,           -1 },
   { "Gimp",          "gimp",                  NULL,       1 << 8,       0,           0,           -1 },
   { "Inkscape",      "org.inkscape.Inkscape", NULL,       1 << 8,       0,           0,           -1 },
-  { "Gvim",          "gvim",                  NULL,       1 << 0,       1,           1,           -1 }
+  { "Gvim",          "gvim",                  NULL,       1 << 2,       1,           0,           -1 }
 };
 
 /* layout(s) */
@@ -68,9 +68,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *browser[] = { "chromium", "https://duckduckgo.com", NULL };
 static const char *lockcmd[] = { "slock", NULL };
-static const char *mailcmd[] = { "alacritty", "-e", "mutt", NULL };
-static const char *strmcmd[] = { "alacritty", NULL };
-static const char *tmuxcmd[] = { "alacritty", "-e", "tmux", NULL };
+static const char *mailcmd[] = { "st", "-e", "mutt", NULL };
+static const char *strmcmd[] = { "st", NULL };
+static const char *tmuxcmd[] = { "st", "-e", "tmux", NULL };
 
 static Key keys[] = {
   /* modifier                     key        function        argument */
