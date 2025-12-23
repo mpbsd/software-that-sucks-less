@@ -29,7 +29,7 @@ static const Rule rules[] = {
    */
   /* class           instance                 title       tags mask     iscentered   isfloating   monitor */
   { "Alacritty",     "Alacritty",             NULL,       1 << 0,       0,           0,           -1 },
-  { "Gcr-prompt",    "gcr-prompt",            NULL,       1 << 0,       1,           1,           -1 },
+  { "Gcr-prompt",    "gcr-prompt",            NULL,           ~0,       1,           1,           -1 },
   { "st-256color",   "st-256color",           NULL,       1 << 0,       0,           0,           -1 },
   { "Chromium",      "chromium",              NULL,       1 << 1,       0,           0,           -1 },
   { "firefox-esr",   "Navigator",             NULL,       1 << 1,       0,           0,           -1 },
@@ -111,8 +111,8 @@ static Key keys[] = {
   { MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
   { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
   { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd} },
   { MODKEY|ControlMask,           XK_b,      spawn,          {.v = browser} },
+  { MODKEY|ControlMask,           XK_l,      spawn,          {.v = lockcmd} },
   { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
   { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} },
   { METKEY,                       XK_b,      spawn,          SHCMD("~/.local/bin/bread") },
