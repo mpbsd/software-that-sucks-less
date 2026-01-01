@@ -43,7 +43,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
@@ -116,8 +116,9 @@ static Key keys[] = {
   { MODKEY|ControlMask,           XK_m,      spawn,          {.v = mailcmd} },
   { MODKEY|ControlMask,           XK_t,      spawn,          {.v = tmuxcmd} },
   { METKEY,                       XK_b,      spawn,          SHCMD("~/.local/bin/bread") },
-  { METKEY,                       XK_p,      spawn,          SHCMD("passmenu") },
   { METKEY,                       XK_o,      spawn,          SHCMD("potpmenu") },
+  { METKEY,                       XK_p,      spawn,          SHCMD("passmenu") },
+  { METKEY,                       XK_s,      spawn,          SHCMD("flatpak run com.spotify.Client") },
   { METKEY,                       XK_z,      spawn,          SHCMD("flatpak run org.zotero.Zotero") }
 };
 
