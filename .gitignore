@@ -70,6 +70,8 @@ st/st
 st/st.o
 st/x.o
 surf/config.h
+surf/surf
+surf/surf.h
 surf/surf.o
 surf/webext-surf.o
 surf/webext-surf.so
