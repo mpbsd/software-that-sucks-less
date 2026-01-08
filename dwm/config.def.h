@@ -28,10 +28,11 @@ static const Rule rules[] = {
    * WM_NAME(STRING) = title
    */
   /* class           instance                 title       tags mask     iscentered   isfloating   monitor */
-  { "Alacritty",     "Alacritty",             NULL,       1 << 0,       0,           0,           -1 },
   { "Gcr-prompt",    "gcr-prompt",            NULL,           ~0,       1,           1,           -1 },
+  { "Alacritty",     "Alacritty",             NULL,       1 << 0,       0,           0,           -1 },
   { "st-256color",   "st-256color",           NULL,       1 << 0,       0,           0,           -1 },
   { "Chromium",      "chromium",              NULL,       1 << 1,       0,           0,           -1 },
+  { "Surf",          "surf",                  NULL,       1 << 1,       1,           0,           -1 },
   { "firefox-esr",   "Navigator",             NULL,       1 << 1,       0,           0,           -1 },
   { "Gvim",          "gvim",                  NULL,       1 << 2,       1,           0,           -1 },
   { "Texmaker",      "texmaker",              NULL,       1 << 3,       1,           0,           -1 },
