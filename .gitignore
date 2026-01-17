@@ -61,6 +61,7 @@ dwm/dwm
 dwm/dwm.o
 dwm/util.o
 slock/config.h
+slock/slock
 slstatus/config.h
 slstatus/slstatus
 slstatus/slstatus.o
